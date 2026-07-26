@@ -2,11 +2,11 @@
 import asyncio
 
 from src.db.vectorEmbedding.WeaviateVectorEmbedding import WeaviateVectorEmbedding
+from src.executors.retrieval.Retriever import Retriever
 from src.db.vectorEmbedding.IVectorEmbedding import IVectorDb
 from app.embeddings.openai_client import OpenAIEmbeddingClient
 from app.embeddings.base import EmbeddingClientInterface
 from app.retrieval.job_match_retriever import VectorJobMatchRetriever
-from app.retrieval.base import JobMatchRetrieverInterface
 from qdrant_client import QdrantClient
 
 
