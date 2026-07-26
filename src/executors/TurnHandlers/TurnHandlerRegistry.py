@@ -1,11 +1,8 @@
-from enum import Enum
 
-from ITurnHandler import ITurnHandler
+from src.executors.TurnHandlers.ITurnHandler import ITurnHandler
+from src.executors.TurnHandlers.TurnType import TurnType
+from src.db.currentSession.ICurrentSession import ICurrentSession
 from src.data_models.PromptItem import PromptItem
-
-class TurnType(str, Enum):
-    NEW_JOB = "new_job"
-    REFINEMENT = "refinement"
 
 class TurnHandlerRegistry:
 
