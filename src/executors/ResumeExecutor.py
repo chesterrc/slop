@@ -3,11 +3,11 @@ import asyncio
 
 from src.db.userInfo.IUserJobInfo import IUserJobInfo
 from src.db.currentSession.ICurrentSession import ICurrentSession
-from executors.turnHandlers.TurnHandlerRegistry import TurnHandlerRegistry
-from data_models.PromptItem import PromptItem
+from src.executors.turnHandlers.TurnHandlerRegistry import TurnHandlerRegistry
+from src.data_models.PromptItem import PromptItem
+from src.data_models.UserInfo import UserInfo
 
-
-class GenerateResumeExecutor:
+class ResumeExecutor:
     def __init__(self,
                  user_info_db: IUserJobInfo,
                  curr_session_db: ICurrentSession,
@@ -17,7 +17,7 @@ class GenerateResumeExecutor:
         self._curr_session = curr_session_db
         self._turn_handler_registry = turn_handler_registry
 
-    async def execute(self, prompt_item: PromptItem):
+    async def execute_resume_generation(self, prompt_item: PromptItem):
         user_profile, curr_sess = await asyncio.gather(
             self._user_info_db.get_user_info(prompt_item.user_id),
             self._curr_session.get_current_session(prompt_item.user_id)
@@ -36,3 +36,7 @@ class GenerateResumeExecutor:
         )
 
         return ChatResponse(reply=response.commentary, draft=curr_sess.current_draft)
+
+    async def execute_resume_upload(self, user_info: UserInfo):
+        user_db = await self._user_info_db.get_user_info(user_info.user_id)
+        user_db.upsert_item(UserInfo)

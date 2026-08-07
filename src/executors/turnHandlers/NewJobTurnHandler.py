@@ -10,5 +10,5 @@ class NewJobTurnHandler(ITurnHandler):
         self._llm_client = llm_client
 
     async def handle(self, prompt_item, user_profile, curr_sess) -> ResumeTurnResponse:
-        self._retriever.embed(prompt_item)
+        self._retriever.embed(prompt_item, user_profile)
         #

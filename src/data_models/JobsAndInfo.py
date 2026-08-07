@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 
 class JobsAndInfo(BaseModel):
-    job: str
-    info: list
+    title: str
+    start_date: str
+    end_date: str
+    bullets: list[str]

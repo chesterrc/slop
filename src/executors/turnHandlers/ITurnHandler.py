@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from src.db.currentSession.ICurrentSession import ICurrentSession
 from src.data_models.PromptItem import PromptItem
 from src.data_models.UserInfo import UserInfo
 
@@ -9,6 +10,6 @@ class ITurnHandler(ABC):
         self,
         prompt_item: PromptItem,
         user_profile: UserInfo,
-        curr_sess: ChatSession,
+        curr_sess: ICurrentSession,
     ) -> ResumeTurnResponse:
         raise NotImplementedError

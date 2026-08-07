@@ -1,7 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from src.utils.Composition import executor_composition
-from data_models.PromptItem import PromptItem
+from src.data_models.PromptItem import PromptItem
+from src.data_models.UserInfo import UserInfo
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -15,5 +16,9 @@ async def generate_user_resume(
         prompt: PromptItem
 ):
     executor = await executor_composition.get_generate_resume_executor()
-    return await executor.execute(prompt)
+    return await executor.execute_resume_generation(prompt)
 
+@app.put("/resume")
+async def place_resume(user_info: UserInfo):
+    executor = await executor_composition.get_generate_resume_executor()
+    return await executor.execute_resume_upload(user_info)
