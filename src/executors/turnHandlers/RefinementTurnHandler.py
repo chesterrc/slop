@@ -1,4 +1,4 @@
-from src.executors.TurnHandlers.ITurnHandler import ITurnHandler
+from src.executors.turnHandlers.ITurnHandler import ITurnHandler
 
 class RefinementTurnHandler(ITurnHandler):
     def __init__(self,

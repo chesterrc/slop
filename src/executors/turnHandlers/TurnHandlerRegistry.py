@@ -1,6 +1,6 @@
 
-from src.executors.TurnHandlers.ITurnHandler import ITurnHandler
-from src.executors.TurnHandlers.TurnType import TurnType
+from src.executors.turnHandlers.ITurnHandler import ITurnHandler
+from src.executors.turnHandlers.TurnType import TurnType
 from src.db.currentSession.ICurrentSession import ICurrentSession
 from src.data_models.PromptItem import PromptItem
 
