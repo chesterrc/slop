@@ -3,6 +3,7 @@ import {useState} from "react";
 
 import { UploadDocument } from "./UploadDocument.tsx";
 
+import "./DocumentUploadPage.css"
 
 export const DocumentUploadPage: FunctionComponent = () => {
     const [file, setFile] = useState<File | null>(null);
@@ -21,12 +22,21 @@ export const DocumentUploadPage: FunctionComponent = () => {
     }
 
     return (
-        <div>
-            <h1>Please Upload Resume</h1>
+        <div className="document-upload-page">
+            <h1 className="document-upload-header">Please Upload Your Resume</h1>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="resume-upload"> Upload Your Resume </label>
-                <input type="file" data-testid="resume-upload" accept=".pdf, .doc, .docx" onChange={handleFileSelected} />
+            <form onSubmit={handleSubmit} className="document-upload-input">
+                <label htmlFor="resume-upload">
+                    Choose a document
+                </label>
+
+                <input
+                    type="file"
+                    data-testid="resume-upload"
+                    accept=".pdf, .doc, .docx"
+                    id="resume-upload"
+                    onChange={handleFileSelected}
+                />
 
                 {file && (
                     <button type="submit" data-testid="submit-button">

@@ -25,6 +25,15 @@ All notable changes to the frontend are documented here.
     - Submitting a selected document.
     - Verifying the upload behavior is invoked with the selected file.
 
+Added warm dark color palette and global typography styling.
+- Added Bookman/URW Bookman L typography for headings and LLM-generated responses.
+- Added centered, responsive document upload layout for desktop and mobile.
+- Added fade-in animations for the document upload header and input.
+- Added reduced-motion support for accessibility.
+- Added styled rounded document upload container.
+- Added custom file upload control while retaining the native file input for accessibility.
+- Added responsive spacing and styling for the document upload interface.
+
 ### Changed
 
 - Organized frontend code around application behavior/features.

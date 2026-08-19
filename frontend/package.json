@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "config": "node scripts/generate-config.mjs",
+    "config": "node generate-config.mjs",
     "dev": "npm run config && vite",
     "build": "npm run config && tsc -b && vite build",
     "lint": "eslint .",
@@ -27,6 +27,7 @@
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.0.4",
     "babel-plugin-react-compiler": "^1.0.0",
+    "dotenv": "^17.4.2",
     "eslint": "^10.8.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",

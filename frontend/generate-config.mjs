@@ -1,5 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const apiUrl = process.env.API_URL;
 

@@ -1,0 +1,63 @@
+.document-upload-page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+@keyframes documentUploadFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.document-upload-header {
+    animation: documentUploadFadeIn 0.8s ease-out both;
+}
+.document-upload-input {
+    display: flex;
+    justify-content: center;
+    animation: documentUploadFadeIn 0.8s ease-out 0.2s both;
+}
+
+.document-upload-input label {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-surface-alt);
+    border-radius: 8px;
+    color: var(--color-background);
+    background-color: var(--color-text-muted);
+    cursor: pointer;
+}
+
+.document-upload-input label:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.document-upload-input input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .document-upload-header,
+    .document-upload-input {
+        animation: none;
+    }
+}
