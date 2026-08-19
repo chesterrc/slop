@@ -17,3 +17,12 @@ User logs in maybe idk yet -> user has to upload a resume and is parsed and stor
 user gets to submit a url for a job whomp whomp stored in embedding_db based off of url job description -> 
 chat gets enabled, website parsing, priming stuff? (look into this) ->
 retrieve semantic stuff, generate new/refined bullets for jobs -> send back to user and wait for user input
+
+### 08/07/2026
+Based on the control flow and the usecase, there may be no need for additional executors.
+ResumeExecutor will execute uploading, searching, and response generation. 
+
+### 08/15/2026
+Integrating PostgresSQL.
+asyncpg connection pools natively optimize for high-concurrency, asynchronous environments, whereas psycopg2-binary 
+connection pools are strictly designed for traditional, multi-threaded synchronous applications.

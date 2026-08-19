@@ -33,7 +33,8 @@ class DatabaseComposition:
         if self._user_info_pool is None:
             async with self._user_info_pool_lock:
                 if self._user_info_pool is None:
-                    self._user_info_pool = await asyncpg.create_pool(dsn=...)
+                    #TODO: idk if the user is gonna have admin privilege if I just hardcode it, look into it
+                    self._user_info_pool = await asyncpg.create_pool(database="postgres", user=...)
         return self._user_info_pool
 
     async def get_curr_session(self) -> ICurrentSession:
